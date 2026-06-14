@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { recipes } from './data/recipes';
 import { blogPosts } from './data/blog';
 import { seoIdeas } from './data/seoIdeas';
@@ -1265,6 +1266,7 @@ export default function App() {
         </div>
       </footer>
 
+      <SpeedInsights />
     </div>
   );
 }
