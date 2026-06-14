@@ -1,0 +1,6 @@
+{
+  "name": "Healthy Fix",
+  "description": "Healthy food blog focused on weight loss recipes, high-protein meal prep scheduler, Pinterest SEO engine, and active calorie calculators.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
