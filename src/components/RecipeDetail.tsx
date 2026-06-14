@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Recipe } from '../types';
-import { AdSenseBlock } from './AdSenseBlock';
 import { CommentsBlock } from './CommentsBlock';
 import { Clock, Users, Flame, ChefHat, Tag, ArrowLeft, Play, Pause, Square, CheckSquare, Dumbbell } from 'lucide-react';
 
 interface RecipeDetailProps {
   recipe: Recipe;
   onBack: () => void;
-  adsEnabled: boolean;
 }
 
-export const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipe, onBack, adsEnabled }) => {
+export const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipe, onBack }) => {
   const [servingsMultiplier, setServingsMultiplier] = useState<number>(recipe.servings);
   const [completedDirections, setCompletedDirections] = useState<{ [key: number]: boolean }>({});
   
@@ -182,9 +180,6 @@ export const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipe, onBack, adsE
           </div>
         </div>
       </div>
-
-      <AdSenseBlock slot="content-top" visible={adsEnabled} />
-
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* INGREDIENTS LIST & SERVINGS SIZER */}
         <div className="lg:col-span-5 bg-white rounded-none border border-[#1F1F1F]/10 p-6 md:p-8">
@@ -315,8 +310,6 @@ export const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipe, onBack, adsE
 
       {/* Real-time Interactive Comments Roundtable */}
       <CommentsBlock contentId={recipe.id} contentType="recipe" />
-
-      <AdSenseBlock slot="content-end" visible={adsEnabled} />
     </div>
   );
 };

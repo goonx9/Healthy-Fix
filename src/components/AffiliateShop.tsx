@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { affiliateProducts } from '../data/affiliateProducts';
-import { AdSenseBlock } from './AdSenseBlock';
 import { Star, CheckCircle, AlertTriangle, ExternalLink, ShoppingCart } from 'lucide-react';
 
 interface AffiliateShopProps {
-  adsEnabled: boolean;
 }
 
-export const AffiliateShop: React.FC<AffiliateShopProps> = ({ adsEnabled }) => {
+export const AffiliateShop: React.FC<AffiliateShopProps> = () => {
   const [activeCategory, setActiveCategory] = useState<'all' | 'kitchen-tools' | 'containers' | 'fitness'>('all');
   const [hoveredProductId, setHoveredProductId] = useState<string | null>(null);
 
@@ -50,9 +48,6 @@ export const AffiliateShop: React.FC<AffiliateShopProps> = ({ adsEnabled }) => {
           ))}
         </div>
       </div>
-
-      <AdSenseBlock slot="content-top" visible={adsEnabled} />
-
       {/* PRODUCTS GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         {filteredProducts.map((p) => (
@@ -142,8 +137,6 @@ export const AffiliateShop: React.FC<AffiliateShopProps> = ({ adsEnabled }) => {
           </div>
         ))}
       </div>
-
-      <AdSenseBlock slot="content-end" visible={adsEnabled} />
     </div>
   );
 };
